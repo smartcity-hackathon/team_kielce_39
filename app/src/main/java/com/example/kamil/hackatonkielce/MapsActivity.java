@@ -22,6 +22,7 @@ import android.support.v4.content.PermissionChecker;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseApp;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
@@ -87,12 +88,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setTiltGesturesEnabled(true);
 
         //setUrl("https://androidhack-e4f9d.firebaseio.com/");
-        Marker_date_list.add(new Marker_date(new LatLng(50.9001050, 20.5866301), "Moonman crack", 1));
-        Marker_date_list.add(new Marker_date(new LatLng(51.9011050, 20.5866301), "I hate", 2));
-        Marker_date_list.add(new Marker_date(new LatLng(52.9021050, 20.5866301), "Niggers", 3));
-        Marker_date_list.add(new Marker_date(new LatLng(53.9031050, 20.5866301), "I hate", 4));
-        Marker_date_list.add(new Marker_date(new LatLng(54.9041050, 20.5866301), "Jews", 5));
-        Marker_date_list.add(new Marker_date(new LatLng(55.9051050, 20.5866301), "I hate this fucking arabs too", 6));
+        Marker_date_list.add(new Marker_date(new LatLng(50.9001050, 20.5866301), "Moonman", 1));
+        Marker_date_list.add(new Marker_date(new LatLng(51.9011050, 20.5866301), "Moonman1", 2));
+        Marker_date_list.add(new Marker_date(new LatLng(52.9021050, 20.5866301), "Moonman2", 3));
+        Marker_date_list.add(new Marker_date(new LatLng(53.9031050, 20.5866301), "Moonman3", 4));
+        Marker_date_list.add(new Marker_date(new LatLng(54.9041050, 20.5866301), "Moonman4", 5));
+        Marker_date_list.add(new Marker_date(new LatLng(55.9051050, 20.5866301), "Moonman5", 6));
 
 
 
@@ -143,7 +144,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         googleMap.setOnInfoWindowClickListener(this);
 
         if (mlocpergrand==true) {
-            Toast.makeText(MapsActivity.this,"JA PIERDOLE!!!!!!", Toast.LENGTH_SHORT).show();
             //getDeviceLocation();
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(true);
@@ -161,7 +161,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if(mlocpergrand==true)
             {
                 Task location = mFusedLocationProviderClient.getLastLocation();
-                Toast.makeText(MapsActivity.this,"KURWA MAĆĆĆĆĆĆĆĆĆĆĆĆĆĆĆĆ", Toast.LENGTH_SHORT).show();
                 location.addOnCompleteListener(new OnCompleteListener() {
                     @Override
                     public void onComplete(@NonNull Task task) {
