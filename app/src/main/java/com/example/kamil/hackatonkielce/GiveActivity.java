@@ -10,7 +10,7 @@ public class GiveActivity extends AppCompatActivity {
 
     TextView t;
     Button button;
-
+//test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
