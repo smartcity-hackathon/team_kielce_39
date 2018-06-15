@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:id="@+id/addTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Tytuł"
+            android:inputType="textPersonName" />
+
+
+        <TextView
+            android:id="@+id/photoDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Dodaj zdjęcie" />
+
+        <Button
+            android:id="@+id/photoButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/photoDescription"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="20dp"
+            android:background="@drawable/camera_black"
+            android:text="" />
+
+
+        <EditText
+            android:id="@+id/textContent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="80dp"
+            android:scrollbars="vertical"
+            android:layout_below="@+id/photoButton"
+            android:layout_marginTop="10dp"
+            android:maxLength="300"
+            android:hint="Opis (max 300 znakow)"
+            android:inputType="textMultiLine" >
+        </EditText>
+
+        <Button
+            android:id="@+id/buttonLocalization"
+            android:text="Lokalizacja"
+            android:textSize="40dp"
+            android:textColor="#FFFFFF"
+            android:layout_below="@+id/textContent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:drawableLeft="@drawable/lokalizacja"
+            android:drawablePadding="2dip"
+            android:paddingLeft="30dip"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            />
+
+        <EditText
+            android:id="@+id/addPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/buttonLocalization"
+            android:ems="10"
+            android:hint="Numer telefonu"
+            android:inputType="textPersonName"
+            android:maxLength="9"/>
+
+        <Button
+            android:id="@+id/buttonAccept"
+            android:text="Akceptuj!"
+            android:textSize="40dp"
+
+            android:textColor="#FFFFFF"
+            android:layout_below="@+id/addPhoneNumber"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_pink"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            />
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -13,6 +13,8 @@ public class VoluntaryActivity extends AppCompatActivity {
     TextView t;
     Button button;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +35,8 @@ public class VoluntaryActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //hehe = 0;
-                Intent toy = new Intent(VoluntaryActivity.this, GiveActivity.class);
+
+                Intent toy = new Intent(VoluntaryActivity.this, GiveActivityForVoluntary.class);
                 startActivity(toy);
             }
         });

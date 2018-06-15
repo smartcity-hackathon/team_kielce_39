@@ -14,9 +14,13 @@ public class GiveActivity extends AppCompatActivity {
 
     EditText editText;
     Button button;
+
+
+
 //test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_give);
         editText = (EditText) findViewById(R.id.addTitle);

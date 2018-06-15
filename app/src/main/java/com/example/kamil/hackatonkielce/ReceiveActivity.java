@@ -52,7 +52,7 @@ public class ReceiveActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //hehe = 0;
+                // = 0;
                 Intent toy = new Intent(ReceiveActivity.this, FromReceiveActivityLocation.class);
                 startActivity(toy);
             }
