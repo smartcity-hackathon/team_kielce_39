@@ -33,7 +33,7 @@ public class ActivityPaidOffers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paid_offers);
 
-        raportDatabase = FirebaseDatabase.getInstance().getReference("bugs");
+        raportDatabase = FirebaseDatabase.getInstance().getReference("PaidOffer");
 
         editTextName = (EditText) findViewById(R.id.editTextName);
         buttonAddReport = (Button) findViewById(R.id.buttonAddReport);

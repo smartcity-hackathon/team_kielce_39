@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //hehe = 0;
-                Intent toy = new Intent(MainActivity.this, GiveActivity.class);
+                Intent toy = new Intent(MainActivity.this, ActivityPaidOffers.class);
                 startActivity(toy);
             }
         });

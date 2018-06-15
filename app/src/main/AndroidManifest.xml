@@ -22,6 +22,7 @@
         <activity android:name=".FromGiveActivityToLocation" />
         <activity android:name=".FromReceiveActivityLocation" />
         <activity android:name=".GiveActivityForVoluntary" />
+        <activity android:name=".ActivityPaidOffers"/>
 
     </application>
 

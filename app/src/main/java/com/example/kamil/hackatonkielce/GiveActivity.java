@@ -10,11 +10,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class GiveActivity extends AppCompatActivity {
 
     EditText editText;
     Button button;
 
+    DatabaseReference raportDatabase;
 
 
 //test
@@ -26,7 +30,7 @@ public class GiveActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.addTitle);
         editText = (EditText) findViewById(R.id.addSalary);
 
-
+        raportDatabase = FirebaseDatabase.getInstance().getReference("AddingOfferts");
 
         button = (Button) findViewById(R.id.photoButton);
         Typeface fontOfButtons = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
