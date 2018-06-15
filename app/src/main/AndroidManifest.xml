@@ -24,6 +24,14 @@
             android:name=".authDirectory.AuthActivity"
             android:label="@string/title_activity_auth"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".GiveActivity" />
+        <activity android:name=".ReceiveActivity" />
+        <activity android:name=".VoluntaryActivity" />
+        <activity android:name=".FromGiveActivityToLocation" />
+        <activity android:name=".FromReceiveActivityLocation" />
+        <activity android:name=".GiveActivityForVoluntary" />
+        <activity android:name=".ActivityPaidOffers"/>
+
     </application>
 
 </manifest>

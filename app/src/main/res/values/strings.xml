@@ -2,4 +2,15 @@
     <string name="app_name">HackatonKielce</string>
     <string name="title_activity_auth">AuthActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
+
+
+    <array name="genres">
+        <item>Awarie/ponowne uruchomienia/zacięcia</item>
+        <item>Karta SIM i sieci komórkowe</item>
+        <item>Wi-Fi</item>
+        <item>Problem z GPS/mapą aplikacji</item>
+        <item>Ostatnie i pamięć podręczna</item>
+        <item>Inne błędy</item>
+    </array>
+
 </resources>
