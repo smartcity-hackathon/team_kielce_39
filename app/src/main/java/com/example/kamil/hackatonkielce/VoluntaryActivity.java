@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.kamil.hackatonkielce.ReceiveDirectory.ReceiveActivity;
+
 public class VoluntaryActivity extends AppCompatActivity {
 
     TextView t;
