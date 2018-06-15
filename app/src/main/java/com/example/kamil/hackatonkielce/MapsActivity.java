@@ -2,6 +2,7 @@ package com.example.kamil.hackatonkielce;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -67,7 +68,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(list.get(4)));
 
-
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                String hamas = marker.getTag().toString();
+                Toast.makeText(MapsActivity.this,hamas , Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
 
     }
 }
