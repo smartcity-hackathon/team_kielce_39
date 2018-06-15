@@ -57,8 +57,8 @@ public class ActivityPaidOffers extends AppCompatActivity {
         if(!TextUtils.isEmpty(name)){
 
             String id = raportDatabase.push().getKey();
-            PaidOffers reports = new PaidOffers(id,name,genre);
-            raportDatabase.child(id).setValue(reports);
+            //PaidOffers reports = new PaidOffers(id,name,genre);
+           // raportDatabase.child(id).setValue(reports);
             Toast.makeText(this,"Dodano raport, dziękujemy.",Toast.LENGTH_LONG).show();
 
         }

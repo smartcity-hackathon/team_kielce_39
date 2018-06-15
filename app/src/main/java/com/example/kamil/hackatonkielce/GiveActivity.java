@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,8 +16,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class GiveActivity extends AppCompatActivity {
 
-    EditText editText;
+    EditText addTitle;
+    EditText addSalary;
+    EditText textContent;
+    EditText addPhoneNumber;
+
     Button button;
+    Button buttonAddReport;
 
     DatabaseReference raportDatabase;
 
@@ -27,8 +33,6 @@ public class GiveActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_give);
-        editText = (EditText) findViewById(R.id.addTitle);
-        editText = (EditText) findViewById(R.id.addSalary);
 
         raportDatabase = FirebaseDatabase.getInstance().getReference("AddingOfferts");
 
@@ -41,6 +45,24 @@ public class GiveActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.buttonAccept);
         Typeface fontOfButtons3 = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
         button.setTypeface(fontOfButtons);
+
+        buttonAddReport = (Button) findViewById(R.id.buttonAccept);
+        addTitle = (EditText) findViewById(R.id.addTitle);
+        addSalary = (EditText) findViewById(R.id.addSalary);
+        button = (Button) findViewById(R.id.photoButton);
+        textContent = (EditText) findViewById(R.id.textContent);
+        addPhoneNumber = (EditText) findViewById(R.id.addPhoneNumber);
+
+        buttonAddReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                text = editText.getText().toString();
+//                Intent toy = new Intent(edmt.dev.androidgridlayout.ActivitySecondSettings.this, ActivitySecondWorkers.class);
+//                startActivity(toy);
+                addReport();
+            }
+        });
 
 
         button = (Button) findViewById(R.id.photoButton);
@@ -61,17 +83,35 @@ public class GiveActivity extends AppCompatActivity {
                 startActivity(toy);
             }
         });
-        button = (Button) findViewById(R.id.buttonAccept);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//        button = (Button) findViewById(R.id.buttonAccept);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Toast.makeText(GiveActivity.this, "Twoje ogłoszenie dodano do bazy!", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
-                Toast.makeText(GiveActivity.this, "Twoje ogłoszenie dodano do bazy!", Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
 
+    }
+    private void addReport(){
+          String title = addTitle.getText().toString().trim();
+          String salary = addSalary.getText().toString();
+          String text = textContent.getText().toString();
+          String number = addPhoneNumber.getText().toString();
 
+        if(!TextUtils.isEmpty(title)){
+
+            String id = raportDatabase.push().getKey();
+            PaidOffers reports = new PaidOffers(id,title,salary,text,number);
+            raportDatabase.child(id).setValue(reports);
+            Toast.makeText(this,"Dodano raport, dziękujemy.",Toast.LENGTH_LONG).show();
+
+        }
+        else{
+            Toast.makeText(this,"Wprowadź dane!", Toast.LENGTH_LONG).show();
+        }
     }
 }
