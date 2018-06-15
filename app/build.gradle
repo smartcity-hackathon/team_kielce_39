@@ -29,5 +29,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.google.firebase:firebase-core:16.0.0'
     implementation 'com.firebase:firebase-client-android:2.5.2'
-
+    implementation "com.google.android.gms:play-services-location:11.6.0"
 }

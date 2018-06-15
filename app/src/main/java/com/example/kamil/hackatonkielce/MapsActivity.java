@@ -8,10 +8,12 @@ import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -19,6 +21,9 @@ import android.support.v4.content.PermissionChecker;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -34,17 +39,24 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,GoogleMap.OnMarkerClickListener,GoogleMap.OnInfoWindowClickListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnInfoWindowClickListener {
 
     private GoogleMap mMap;
     private String url;
-    private final ArrayList <Marker_date> Marker_date_list = new ArrayList<>();
+    private final ArrayList<Marker_date> Marker_date_list = new ArrayList<>();
     private Marker myMarker;
     private int iter_marker_date = 0;
+    private FusedLocationProviderClient mFusedLocationProviderClient;
+    private boolean mlocpergrand = false;
+    private static float DEFAULT_ZOOM = 15f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,27 +85,42 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //setUrl("https://androidhack-e4f9d.firebaseio.com/");
 
         // Add a marker in Sydney and move the camera
-        Marker_date_list.add(new Marker_date(new LatLng(50.9001050, 20.5866301),"Moonman crack",1));
-        Marker_date_list.add(new Marker_date(new LatLng(51.9011050, 20.5866301),"I hate",2));
-        Marker_date_list.add(new Marker_date(new LatLng(52.9021050, 20.5866301),"Niggers",3));
-        Marker_date_list.add(new Marker_date(new LatLng(53.9031050, 20.5866301),"I hate",4));
-        Marker_date_list.add(new Marker_date(new LatLng(54.9041050, 20.5866301),"Jews",5));
-        Marker_date_list.add(new Marker_date(new LatLng(55.9051050, 20.5866301),"I hate this fucking arabs too",6));
+        Marker_date_list.add(new Marker_date(new LatLng(50.9001050, 20.5866301), "Moonman crack", 1));
+        Marker_date_list.add(new Marker_date(new LatLng(51.9011050, 20.5866301), "I hate", 2));
+        Marker_date_list.add(new Marker_date(new LatLng(52.9021050, 20.5866301), "Niggers", 3));
+        Marker_date_list.add(new Marker_date(new LatLng(53.9031050, 20.5866301), "I hate", 4));
+        Marker_date_list.add(new Marker_date(new LatLng(54.9041050, 20.5866301), "Jews", 5));
+        Marker_date_list.add(new Marker_date(new LatLng(55.9051050, 20.5866301), "I hate this fucking arabs too", 6));
 
         googleMap.setOnMarkerClickListener(this);
         googleMap.setOnInfoWindowClickListener(this);
 
-        mMap.getUiSettings().setMapToolbarEnabled(true);
+        if (mlocpergrand) {
+            getDeviceLocation();
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-        if(ContextCompat.checkSelfPermission(this.getApplicationContext(),"android.permission.ACCESS_FINE_LOCATION")== PackageManager.PERMISSION_GRANTED&&
-                ContextCompat.checkSelfPermission(this.getApplicationContext(),"android.permission.ACCESS_COARSE_LOCATION")== PackageManager.PERMISSION_GRANTED )
-        {
-            googleMap.setMyLocationEnabled(true);
-
+                return;
+            }
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(true);
         }
 
+        mMap.getUiSettings().setMapToolbarEnabled(true);
+        String [] permissions = {"Manifest.permission.ACCESS_FINE_LOCATION","Manifest.permission.ACCESS_COARSE_LOCATION"};
+
+        if(ContextCompat.checkSelfPermission(this.getApplicationContext(),"FINE_LOCATION")== PackageManager.PERMISSION_GRANTED&&
+                ContextCompat.checkSelfPermission(this.getApplicationContext(),"ACCESS_COARSE_LOCATION")== PackageManager.PERMISSION_GRANTED )
+        {
+            //googleMap.setMyLocationEnabled(true);
+
+            //mMap.setMyLocationEnabled(true);
+            //mMap.getUiSettings().setMyLocationButtonEnabled(true);
+            mlocpergrand=true;
+        }
+        else
+        {
+            ActivityCompat.requestPermissions(this,permissions,PackageManager.PERMISSION_GRANTED);
+        }
         //Iterator <Marker_date> iter=Marker_date_list.iterator();
 
         //while(iter.hasNext())
@@ -132,9 +159,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     }
-    private void show_but_on_mark()
+    private void getDeviceLocation()
     {
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        try{
+            if(mlocpergrand==true)
+            {
+                Task location = mFusedLocationProviderClient.getLastLocation();
+                location.addOnCompleteListener(new OnCompleteListener() {
+                    @Override
+                    public void onComplete(@NonNull Task task) {
+                        if(task.isSuccessful()){
+                            Location currentlocation = (Location) task.getResult();
+                            moveCamera(new LatLng(currentlocation.getLatitude(),currentlocation.getLongitude()),DEFAULT_ZOOM);
+                        }
+                    }
+                });
+            }
+        }catch(SecurityException e){
 
+        }
+    }
+
+    private void moveCamera(LatLng coord, float zoom)
+    {
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coord,zoom));
     }
 
     public boolean onMarkerClick(final Marker marker) {
