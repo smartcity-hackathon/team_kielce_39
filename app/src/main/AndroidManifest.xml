@@ -19,6 +19,8 @@
         <activity android:name=".GiveActivity" />
         <activity android:name=".ReceiveActivity" />
         <activity android:name=".VoluntaryActivity" />
+        <activity android:name=".FromGiveActivityToLocation" />
+
 
     </application>
 
