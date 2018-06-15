@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/addTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Tytuł"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/addSalary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Cena"
+        android:inputType="textPersonName|number" />
+
+
+    <TextView
+        android:id="@+id/photoDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addSalary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Dodaj zdjęcie" />
+
+    <Button
+        android:id="@+id/photoButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/photoDescription"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="20dp"
+        android:background="@drawable/camera_black"
+        android:text="" />
+
+</RelativeLayout>
