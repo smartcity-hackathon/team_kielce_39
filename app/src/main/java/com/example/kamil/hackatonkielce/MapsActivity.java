@@ -1,5 +1,6 @@
 package com.example.kamil.hackatonkielce;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -81,10 +82,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.getUiSettings().setMapToolbarEnabled(true);
+        mMap.getUiSettings().setCompassEnabled(true);
+        mMap.getUiSettings().setTiltGesturesEnabled(true);
 
         //setUrl("https://androidhack-e4f9d.firebaseio.com/");
-
-        // Add a marker in Sydney and move the camera
         Marker_date_list.add(new Marker_date(new LatLng(50.9001050, 20.5866301), "Moonman crack", 1));
         Marker_date_list.add(new Marker_date(new LatLng(51.9011050, 20.5866301), "I hate", 2));
         Marker_date_list.add(new Marker_date(new LatLng(52.9021050, 20.5866301), "Niggers", 3));
@@ -92,56 +94,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Marker_date_list.add(new Marker_date(new LatLng(54.9041050, 20.5866301), "Jews", 5));
         Marker_date_list.add(new Marker_date(new LatLng(55.9051050, 20.5866301), "I hate this fucking arabs too", 6));
 
-        googleMap.setOnMarkerClickListener(this);
-        googleMap.setOnInfoWindowClickListener(this);
 
-        if (mlocpergrand) {
+
+
+
+        mMap.getUiSettings().setMapToolbarEnabled(true);
+
+
+        if (mlocpergrand==true) {
             getDeviceLocation();
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
+                Toast.makeText(MapsActivity.this,"pytanie o dostep 1", Toast.LENGTH_SHORT).show();
                 return;
             }
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(true);
         }
 
-        mMap.getUiSettings().setMapToolbarEnabled(true);
-        String [] permissions = {"Manifest.permission.ACCESS_FINE_LOCATION","Manifest.permission.ACCESS_COARSE_LOCATION"};
-
-        if(ContextCompat.checkSelfPermission(this.getApplicationContext(),"FINE_LOCATION")== PackageManager.PERMISSION_GRANTED&&
-                ContextCompat.checkSelfPermission(this.getApplicationContext(),"ACCESS_COARSE_LOCATION")== PackageManager.PERMISSION_GRANTED )
+        if((ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED))
         {
-            //googleMap.setMyLocationEnabled(true);
-
-            //mMap.setMyLocationEnabled(true);
-            //mMap.getUiSettings().setMyLocationButtonEnabled(true);
+            Toast.makeText(MapsActivity.this,"pytanie o dostep 2", Toast.LENGTH_SHORT).show();
             mlocpergrand=true;
         }
         else
         {
-            ActivityCompat.requestPermissions(this,permissions,PackageManager.PERMISSION_GRANTED);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Toast.makeText(MapsActivity.this, "pytanie o dostep 3", Toast.LENGTH_SHORT).show();
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 457837897);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 457837897);
+            }
         }
-        //Iterator <Marker_date> iter=Marker_date_list.iterator();
-
-        //while(iter.hasNext())
-        //{
-        //    mMap.addMarker(new MarkerOptions().position(iter.next().cord).title(iter.next().name));
-        //}
-
-        /*for (Iterator<Marker_date> iter = Marker_date_list.iterator(); iter.hasNext(); ) {
-
-            mMap.addMarker(new MarkerOptions().position(iter.next().cord).title(iter.next().name));
-        }*/
-
-
-        ///final ArrayList <Marker> marker_list = new ArrayList<>();
-
-        //for(int i=0;i<10;i++)
-        //{
-            //marker_list.add(mMap.addMarker(new MarkerOptions().position(new LatLng(50.9001050+(i), 20.5866301))));
-            //marker_list.get(i).setTag(i);
-
-        //}
 
 
 
@@ -151,13 +133,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Marker marker =  mMap.addMarker(new MarkerOptions().position(i.cord));
             marker.setTag(i.id);
             marker.setTitle(i.name);
+
             //marker.setIcon(BitmapDescriptorFactory.fromBitmap(make_icon(i.name)));
         }
 
-
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Marker_date_list.get(2).cord));
 
+        googleMap.setOnMarkerClickListener(this);
+        googleMap.setOnInfoWindowClickListener(this);
 
+        if (mlocpergrand==true) {
+            Toast.makeText(MapsActivity.this,"JA PIERDOLE!!!!!!", Toast.LENGTH_SHORT).show();
+            //getDeviceLocation();
+            mMap.setMyLocationEnabled(true);
+            mMap.getUiSettings().setMyLocationButtonEnabled(true);
+            mMap.getUiSettings().setMapToolbarEnabled(true);
+            mMap.getUiSettings().setCompassEnabled(true);
+            mMap.getUiSettings().setTiltGesturesEnabled(true);
+
+
+        }
     }
     private void getDeviceLocation()
     {
@@ -166,6 +161,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if(mlocpergrand==true)
             {
                 Task location = mFusedLocationProviderClient.getLastLocation();
+                Toast.makeText(MapsActivity.this,"KURWA MAĆĆĆĆĆĆĆĆĆĆĆĆĆĆĆĆ", Toast.LENGTH_SHORT).show();
                 location.addOnCompleteListener(new OnCompleteListener() {
                     @Override
                     public void onComplete(@NonNull Task task) {
@@ -180,9 +176,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         }
     }
-
+//epsg 2178 to epsg 4326
     private void moveCamera(LatLng coord, float zoom)
     {
+        Toast.makeText(MapsActivity.this,"move camera", Toast.LENGTH_SHORT).show();
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(coord,zoom));
     }
 
@@ -190,10 +187,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         String name= marker.getTitle()+" "+marker.getTag()+" "+marker.getPosition()+" Marker";
         marker.showInfoWindow();
+
         mMap.getUiSettings().setMapToolbarEnabled(true);
         Toast.makeText(MapsActivity.this,name, Toast.LENGTH_SHORT).show();
 
-        return true;
+        return false;
     }
 
     @Override
