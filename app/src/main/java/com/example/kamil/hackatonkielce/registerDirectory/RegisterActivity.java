@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.kamil.hackatonkielce.MainActivity;
 import com.example.kamil.hackatonkielce.R;
+import com.example.kamil.hackatonkielce.authDirectory.AuthActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,16 +26,16 @@ import butterknife.ButterKnife;
 public class RegisterActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.appBarLayout2)
+//    @BindView(R.id.appBarLayout2)
     AppBarLayout appBarLayout2;
-    @BindView(R.id.emailId)
+//    @BindView(R.id.emailId)
     EditText emailId;
-    @BindView(R.id.passID)
+//    @BindView(R.id.passID)
     EditText passID;
-    @BindView(R.id.registerButt)
-    Button registerButt;
-    @BindView(R.id.goBackButt)
-    Button goBackButt;
+//    @BindView(R.id.registerButt)
+   Button registerButt;
+//    @BindView(R.id.goBackButt)
+   Button goBackButt;
     private FirebaseAuth mAuth;
 
     private String email;
@@ -47,6 +49,30 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        registerButt = (Button) findViewById(R.id.registerButt);
+        goBackButt = (Button) findViewById(R.id.goBackButt);
+        emailId = (EditText) findViewById(R.id.emailId);
+        passID = (EditText) findViewById(R.id.passID);
+
+
+        goBackButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("sth", "finish");
+//                Intent toy = new Intent(RegisterActivity.this, AuthActivity.class);
+//                startActivity(toy);
+                finish();
+            }
+        });
+
+        goBackButt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                onRegisterClick();
+            }
+        });
+
 
     }
 
@@ -54,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        //FirebaseUser currentUser = mAuth.getCurrentUser();
         //updateUI(currentUser);
 
 
@@ -73,9 +99,11 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                    Log.d("sth", "signInWithEmail:success");
+                                    startActivity(new Intent(getApplicationContext(), AuthActivity.class));
                                     finish();
                                 } else {
+                                    Log.d("sth", "signInWithEmail:failure");
                                     Toast.makeText(getApplicationContext(), "E-mail or password is wrong", Toast.LENGTH_SHORT).show();
                                 }
                             }
