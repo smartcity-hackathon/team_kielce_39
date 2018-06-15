@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent toy = new Intent(MainActivity.this, GiveActivity.class);
+                Intent toy = new Intent(MainActivity.this, VoluntaryActivity.class);
                 startActivity(toy);
             }
         });

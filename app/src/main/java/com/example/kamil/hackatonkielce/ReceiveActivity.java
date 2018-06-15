@@ -2,6 +2,7 @@ package com.example.kamil.hackatonkielce;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kamil.hackatonkielce.GiveActivity;
@@ -34,6 +36,10 @@ public class ReceiveActivity extends AppCompatActivity {
 
     public static int zmiennaDoPrzekazaniaWFourthOffer;
 
+    TextView t;
+
+    Button button;
+
     public static int hehe;
 
     @Override
@@ -42,8 +48,34 @@ public class ReceiveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_receive);
 
 
+        button = (Button) findViewById(R.id.buttonLocation);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //hehe = 0;
+                Intent toy = new Intent(ReceiveActivity.this, FromReceiveActivityLocation.class);
+                startActivity(toy);
+            }
+        });
+        button = (Button) findViewById(R.id.buttonFilter);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(ReceiveActivity.this, "Tu nam sie sortuje baza", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
+        t = (TextView) findViewById(R.id.textView1);
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/Pacifico.ttf");
+        t.setTypeface(myCustomFont);
+
+
         Firebase.setAndroidContext(this);
-//"https://pomocnikturysty-b658e.firebaseio.com/Wydzialy/\"WEAI\""
+
         setUrl("https://androidhack-e4f9d.firebaseio.com/");
 
 

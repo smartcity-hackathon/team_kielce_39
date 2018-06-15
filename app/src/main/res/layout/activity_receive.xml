@@ -21,8 +21,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/buttonLocalization"
+        android:id="@+id/buttonLocation"
         android:text="Lokalizacja"
         android:textSize="30dp"
         android:textColor="#FFFFFF"
@@ -43,11 +44,33 @@
         android:shadowRadius="5"
         />
 
-        <ListView
-            android:id="@+id/listVieww"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true" />
+        <Button
+            android:id="@+id/buttonFilter"
+            android:text="Sortuj"
+            android:textSize="20dp"
+
+            android:textColor="#FFF"
+            android:layout_below="@+id/buttonLocation"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            />
+
+
+    <ListView
+        android:id="@+id/listVieww"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/buttonFilter"
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
     </RelativeLayout>
 </ScrollView>

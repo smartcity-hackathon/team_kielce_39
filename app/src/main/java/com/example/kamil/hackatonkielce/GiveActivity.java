@@ -24,7 +24,6 @@ public class GiveActivity extends AppCompatActivity {
 
 
 
-
         button = (Button) findViewById(R.id.photoButton);
         Typeface fontOfButtons = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
         button.setTypeface(fontOfButtons);
