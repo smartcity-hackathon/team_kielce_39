@@ -6,62 +6,62 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.kamil.hackatonkielce.ReceiveDirectory.ReceiveActivity;
+public class GiveActivityForVoluntary extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity {
-
-    TextView t;
+    EditText editText;
     Button button;
-
+    //test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_give_voluntary);
+        editText = (EditText) findViewById(R.id.addTitle);
 
-        t = (TextView) findViewById(R.id.textView1);
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/Pacifico.ttf");
-        t.setTypeface(myCustomFont);
-        button = (Button) findViewById(R.id.buttonGiveJob);
+
+        button = (Button) findViewById(R.id.photoButton);
         Typeface fontOfButtons = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
         button.setTypeface(fontOfButtons);
-        button = (Button) findViewById(R.id.buttonReceiveJob);
+        button = (Button) findViewById(R.id.buttonLocalization);
         Typeface fontOfButtons2 = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
         button.setTypeface(fontOfButtons);
-        button = (Button) findViewById(R.id.buttonVoluntary);
+        button = (Button) findViewById(R.id.buttonAccept);
         Typeface fontOfButtons3 = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
         button.setTypeface(fontOfButtons);
 
-        button = (Button) findViewById(R.id.buttonGiveJob);
+
+        button = (Button) findViewById(R.id.photoButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //hehe = 0;
-                Intent toy = new Intent(MainActivity.this, GiveActivity.class);
-                startActivity(toy);
+                //tutaj bedzie otwarcie do wybrania zdjecia albo do zrobienia zdjecia
+                Toast.makeText(GiveActivityForVoluntary.this, "Zrob zdjecie/wybierz z galerii", Toast.LENGTH_SHORT).show();
+
             }
         });
-        button = (Button) findViewById(R.id.buttonReceiveJob);
+        button = (Button) findViewById(R.id.buttonLocalization);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent toy = new Intent(MainActivity.this, ReceiveActivity.class);
+                Intent toy = new Intent(GiveActivityForVoluntary.this, FromGiveActivityToLocation.class);
                 startActivity(toy);
             }
         });
-        button = (Button) findViewById(R.id.buttonVoluntary);
+        button = (Button) findViewById(R.id.buttonAccept);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent toy = new Intent(MainActivity.this, VoluntaryActivity.class);
-                startActivity(toy);
+                Toast.makeText(GiveActivityForVoluntary.this, "Twoje ogłoszenie dodano do bazy!", Toast.LENGTH_SHORT).show();
+
             }
         });
+
 
 
     }
-
 }

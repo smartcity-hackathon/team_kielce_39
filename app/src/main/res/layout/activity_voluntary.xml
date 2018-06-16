@@ -57,20 +57,7 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5" />
-        <Button
-            android:id="@+id/buttonVoluntary"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="0dp"
-            android:layout_below="@+id/buttonReceiveJob"
-            android:text="Wolontariat"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/wolontariusz"
-            android:shadowColor="#A8A8A8"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5" />
+
 
 
 
