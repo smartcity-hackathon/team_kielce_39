@@ -72,12 +72,15 @@ public class ReceiveActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-              Toast.makeText(ReceiveActivity.this, "Tu nam sie sortuje baza", Toast.LENGTH_SHORT).show();
+//              Toast.makeText(ReceiveActivity.this, "Tu nam sie sortuje baza", Toast.LENGTH_SHORT).show();
+                selectWithfilter();
 
             }
         });
 
         selectAll();
+
+
 
 
         textView = (TextView) findViewById(R.id.textView1);
@@ -90,21 +93,18 @@ public class ReceiveActivity extends AppCompatActivity {
     }
 
 
-
-    protected void selectStreet(String street) {
-
-        Query query = FirebaseDatabase.getInstance().getReference("AddingOfferts")
-                .orderByChild("streetName")
-                .equalTo(street);
-
-    }
-
     protected void selectAll() {
-        Log.d("sth","zatancze na twoim grobie");
+       // Log.d("sth","zatancze na twoim grobie");
         Query query = FirebaseDatabase.getInstance().getReference("AddingOfferts");
         query.addListenerForSingleValueEvent(valueEventListener);
     }
 
+
+    protected void selectWithfilter() {
+        Log.d("sth","zatancze na twoim grobie");
+        Query query = FirebaseDatabase.getInstance().getReference("AddingOfferts").orderByChild("sallary").startAt(1);
+        query.addListenerForSingleValueEvent(valueEventListener);
+    }
 
     ValueEventListener valueEventListener = new ValueEventListener() {
 
