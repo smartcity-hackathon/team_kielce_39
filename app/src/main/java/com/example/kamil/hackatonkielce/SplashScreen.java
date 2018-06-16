@@ -21,7 +21,7 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splashscreen);
 
         t = (TextView) findViewById(R.id.logo);
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/Pacifico.ttf");
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/Pacifico.otf");
         t.setTypeface(myCustomFont);
 
         new Handler().postDelayed(new Runnable(){

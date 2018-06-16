@@ -59,6 +59,8 @@ public class ReceiveActivity extends AppCompatActivity {
 
 
         buttonLocation = (Button) findViewById(R.id.buttonLocation);
+        Typeface fontOfButtons = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
+        buttonLocation.setTypeface(fontOfButtons);
         buttonLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +70,8 @@ public class ReceiveActivity extends AppCompatActivity {
             }
         });
         buttonFilter = (Button) findViewById(R.id.buttonFilter);
+        Typeface fontOfButtons1 = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
+        buttonFilter.setTypeface(fontOfButtons1);
         buttonFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +88,7 @@ public class ReceiveActivity extends AppCompatActivity {
 
 
         textView = (TextView) findViewById(R.id.textView1);
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.otf");
         textView.setTypeface(myCustomFont);
 
 

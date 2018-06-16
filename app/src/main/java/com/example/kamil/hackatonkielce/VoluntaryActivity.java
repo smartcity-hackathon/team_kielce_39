@@ -23,7 +23,7 @@ public class VoluntaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_voluntary);
 
         t = (TextView) findViewById(R.id.textView1);
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/Pacifico.ttf");
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/Pacifico.otf");
         t.setTypeface(myCustomFont);
         button = (Button) findViewById(R.id.buttonGiveJob);
         Typeface fontOfButtons = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");

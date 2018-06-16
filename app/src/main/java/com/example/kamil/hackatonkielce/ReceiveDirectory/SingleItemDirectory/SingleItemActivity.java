@@ -1,11 +1,15 @@
 package com.example.kamil.hackatonkielce.ReceiveDirectory.SingleItemDirectory;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.kamil.hackatonkielce.MapsActivity;
 import com.example.kamil.hackatonkielce.R;
 
 public class SingleItemActivity extends AppCompatActivity {
@@ -26,8 +30,14 @@ public class SingleItemActivity extends AppCompatActivity {
         String idOfPaidOffer = extras.getString("PaidOffer");
         String description = extras.getString("desc");
 
+
+
         txt = (TextView) findViewById(R.id.textViewTitle);
-        txt.setText("Tytuł: " + title);
+        Typeface fontOfButtons = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
+        txt.setTypeface(fontOfButtons);
+        txt.setText(title);
+        btn = (Button) findViewById(R.id.buttonLocalization);
+        btn.setTypeface(fontOfButtons);
         txt = (TextView) findViewById(R.id.textViewSalary);
         if(sallary ==null) {
             txt.setText(" ");

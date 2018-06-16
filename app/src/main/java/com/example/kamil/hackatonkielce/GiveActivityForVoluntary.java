@@ -72,7 +72,7 @@ public class GiveActivityForVoluntary extends AppCompatActivity {
         button.setTypeface(fontOfButtons);
         buttonAddReport = (Button) findViewById(R.id.buttonAccept);
         Typeface fontOfButtons3 = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
-        button.setTypeface(fontOfButtons);
+        buttonAddReport.setTypeface(fontOfButtons);
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();

@@ -14,7 +14,7 @@
         android:layout_centerInParent="true"
         android:text="Sasiad"
         android:textColor="#fff"
-        android:textSize="70dp"
+        android:textSize="60dp"
         tools:layout_editor_absoluteX="163dp"
         tools:layout_editor_absoluteY="273dp" />
 

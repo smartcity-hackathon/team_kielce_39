@@ -19,7 +19,7 @@
         android:layout_marginLeft="20dp"
         android:textColor="#e2002d"
         android:layout_alignParentLeft="true"
-        android:textSize="30dp"/>
+        android:textSize="60dp"/>
 
     <TextView
         android:id="@+id/textViewSalary"
@@ -28,6 +28,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/textViewTitle"
         android:layout_marginTop="40dp"
+        android:textColor="#000"
         android:text="Kwota"
         android:layout_marginRight="20dp"
         android:layout_alignParentRight="true"

@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.kamil.hackatonkielce.FromGiveActivityToLocation;
+import com.example.kamil.hackatonkielce.MapsActivity;
 import com.example.kamil.hackatonkielce.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -73,7 +74,7 @@ public class GiveActivity extends AppCompatActivity {
         button.setTypeface(fontOfButtons);
         buttonAddReport = (Button) findViewById(R.id.buttonAccept);
         Typeface fontOfButtons3 = Typeface.createFromAsset(getAssets(),"fonts/Bold.ttf");
-        button.setTypeface(fontOfButtons);
+        buttonAddReport.setTypeface(fontOfButtons);
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -104,8 +105,8 @@ public class GiveActivity extends AppCompatActivity {
             public void onClick(View view) {
                // uploadImage();
 //                text = editText.getText().toString();
-//                Intent toy = new Intent(edmt.dev.androidgridlayout.ActivitySecondSettings.this, ActivitySecondWorkers.class);
-//                startActivity(toy);
+          //      Intent toy = new Intent(GiveActivity.this, MapsActivity.class);
+            //    startActivity(toy);
                 uploadImage();
                 addReport();
 
@@ -134,7 +135,7 @@ public class GiveActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent toy = new Intent(GiveActivity.this, FromGiveActivityToLocation.class);
+                Intent toy = new Intent(GiveActivity.this, MapsActivity.class);
                 startActivity(toy);
             }
         });
