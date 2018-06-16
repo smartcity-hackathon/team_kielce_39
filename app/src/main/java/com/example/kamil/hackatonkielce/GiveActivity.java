@@ -214,7 +214,7 @@ public class GiveActivity extends AppCompatActivity {
         if(!TextUtils.isEmpty(title)){
 
             String id = raportDatabase.push().getKey();
-            PaidOffers reports = new PaidOffers(id,title,sallary,description,number);
+            PaidOffers reports = new PaidOffers(id,title,salary,text,number);
             raportDatabase.child(id).setValue(reports);
             Toast.makeText(this,"Dodano raport, dziękujemy.",Toast.LENGTH_LONG).show();
 
