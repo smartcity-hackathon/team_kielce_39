@@ -50,7 +50,12 @@ public class OffertsAdapter extends RecyclerView.Adapter<OffertsAdapter.OffertVi
         final Offerts offert = offertsList.get(position);
 
         //holder.imageView =offertsList
-         holder.textViewPrice.setText(offert.sallary);
+        if(offert.sallary!=null){
+            holder.textViewPrice.setText(offert.sallary);
+        } else {
+            holder.textViewPrice.setText("");
+        }
+
          holder.textViewTitle.setText(offert.title);
 
          holder.setItemClickListener(new ItemClickListener() {
@@ -62,7 +67,8 @@ public class OffertsAdapter extends RecyclerView.Adapter<OffertsAdapter.OffertVi
                  toy.putExtra("addPhoneNumber",offert.addPhoneNumber.toString());
                 toy.putExtra("desc",offert.description.toString());
                 toy.putExtra("PaidOffer",offert.idOfPaidOffer.toString());
-                 toy.putExtra("sallary",offert.sallary.toString());
+                 if(offert.sallary!=null){
+                 toy.putExtra("sallary",offert.sallary.toString()); }
                  toy.putExtra("title",offert.title.toString());
 
                  context.startActivity(toy);

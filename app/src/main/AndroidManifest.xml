@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,11 +28,13 @@
             android:label="@string/title_activity_auth"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GiveActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".ReceiveDirectory.ReceiveActivity" />
         <activity android:name=".VoluntaryActivity" />
         <activity android:name=".FromGiveActivityToLocation" />
         <activity android:name=".FromReceiveActivityLocation" />
         <activity android:name=".GiveActivityForVoluntary" />
+        <activity android:name=".ReceiveActivityForVoluntary" />
         <activity android:name=".ActivityPaidOffers" />
         <activity
             android:name=".ReceiveDirectory.SingleItemDirectory.SingleItemActivity"

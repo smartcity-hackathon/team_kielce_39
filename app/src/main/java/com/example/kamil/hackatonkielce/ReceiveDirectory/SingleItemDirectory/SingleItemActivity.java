@@ -23,18 +23,21 @@ public class SingleItemActivity extends AppCompatActivity {
         String addPhoneNumber = extras.getString("addPhoneNumber");
         String title = extras.getString("title");
         String sallary  = extras.getString("sallary");
-        Object idOfPaidOffer = extras.getBundle("PaidOffer");
-        Object description = extras.getBundle("desc");
-        String descrptionString = (String)description;
+        String idOfPaidOffer = extras.getString("PaidOffer");
+        String description = extras.getString("desc");
 
         txt = (TextView) findViewById(R.id.textViewTitle);
         txt.setText("Tytuł: " + title);
         txt = (TextView) findViewById(R.id.textViewSalary);
-        txt.setText("Kwota: " + sallary + "zł");
+        if(sallary ==null) {
+            txt.setText(" ");
+        } else {
+            txt.setText("Kwota: " + sallary + "zł");
+        }
         txt = (TextView) findViewById(R.id.textContent);
-        txt.setText(descrptionString);
+        txt.setText(description);
         txt = (TextView) findViewById(R.id.textViewPhone);
-        txt.setText("Numer telefonu: " + addPhoneNumber);
+        txt.setText("Kontakt: " + addPhoneNumber);
 
 
 

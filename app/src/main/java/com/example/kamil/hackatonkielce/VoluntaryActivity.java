@@ -47,7 +47,7 @@ public class VoluntaryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent toy = new Intent(VoluntaryActivity.this, ReceiveActivity.class);
+                Intent toy = new Intent(VoluntaryActivity.this, ReceiveActivityForVoluntary.class);
                 startActivity(toy);
             }
         });
