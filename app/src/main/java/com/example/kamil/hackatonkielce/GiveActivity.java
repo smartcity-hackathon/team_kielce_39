@@ -98,14 +98,14 @@ public class GiveActivity extends AppCompatActivity {
     }
     private void addReport(){
           String title = addTitle.getText().toString().trim();
-          String salary = addSalary.getText().toString();
-          String text = textContent.getText().toString();
+          String sallary = addSalary.getText().toString();
+          String description = textContent.getText().toString();
           String number = addPhoneNumber.getText().toString();
 
         if(!TextUtils.isEmpty(title)){
 
             String id = raportDatabase.push().getKey();
-            PaidOffers reports = new PaidOffers(id,title,salary,text,number);
+            PaidOffers reports = new PaidOffers(id,title,sallary,description,number);
             raportDatabase.child(id).setValue(reports);
             Toast.makeText(this,"Dodano raport, dziękujemy.",Toast.LENGTH_LONG).show();
 
