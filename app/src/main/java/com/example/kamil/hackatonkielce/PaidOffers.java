@@ -20,6 +20,12 @@ public class PaidOffers {
         this.description = description; //czyli tekst
         this.addPhoneNumber = addPhoneNumber;
     }
+    public PaidOffers(String idOfPaidOffer, String title, String description, String addPhoneNumber) {
+        this.idOfPaidOffer = idOfPaidOffer;
+        this.title = title;
+        this.description = description; //czyli tekst
+        this.addPhoneNumber = addPhoneNumber;
+    }
 
     public String getidOfPaidOffer() {
         return idOfPaidOffer;
