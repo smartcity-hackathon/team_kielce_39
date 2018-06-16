@@ -1,4 +1,4 @@
-package com.example.kamil.hackatonkielce;
+package com.example.kamil.hackatonkielce.giveDirectory;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.kamil.hackatonkielce.R;
 import com.firebase.client.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

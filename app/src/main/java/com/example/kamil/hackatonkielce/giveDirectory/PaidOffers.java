@@ -1,4 +1,4 @@
-package com.example.kamil.hackatonkielce;
+package com.example.kamil.hackatonkielce.giveDirectory;
 
 public class PaidOffers {
 

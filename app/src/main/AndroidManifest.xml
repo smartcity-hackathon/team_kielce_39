@@ -27,7 +27,7 @@
             android:name=".authDirectory.AuthActivity"
             android:label="@string/title_activity_auth"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".GiveActivity" />
+        <activity android:name=".giveDirectory.GiveActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ReceiveDirectory.ReceiveActivity" />
         <activity android:name=".VoluntaryActivity" />
@@ -35,7 +35,7 @@
         <activity android:name=".FromReceiveActivityLocation" />
         <activity android:name=".GiveActivityForVoluntary" />
         <activity android:name=".ReceiveActivityForVoluntary" />
-        <activity android:name=".ActivityPaidOffers" />
+        <activity android:name=".giveDirectory.ActivityPaidOffers" />
         <activity
             android:name=".ReceiveDirectory.SingleItemDirectory.SingleItemActivity"
             android:label="@string/title_activity_single_item"

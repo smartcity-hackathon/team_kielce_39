@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.kamil.hackatonkielce.ReceiveDirectory.ReceiveActivity;
+import com.example.kamil.hackatonkielce.giveDirectory.GiveActivity;
 
 public class MainActivity extends AppCompatActivity {
 

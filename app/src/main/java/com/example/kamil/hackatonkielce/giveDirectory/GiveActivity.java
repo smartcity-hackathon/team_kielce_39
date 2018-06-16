@@ -1,4 +1,4 @@
-package com.example.kamil.hackatonkielce;
+package com.example.kamil.hackatonkielce.giveDirectory;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,13 +14,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.example.kamil.hackatonkielce.FromGiveActivityToLocation;
+import com.example.kamil.hackatonkielce.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
