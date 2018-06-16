@@ -19,8 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".registerDirectory.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".authDirectory.AuthActivity"
+            android:label="@string/title_activity_auth"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".GiveActivity" />
-        <activity android:name=".ReceiveActivity" />
+        <activity android:name=".ReceiveDirectory.ReceiveActivity" />
         <activity android:name=".VoluntaryActivity" />
         <activity android:name=".FromGiveActivityToLocation" />
         <activity android:name=".FromReceiveActivityLocation" />
